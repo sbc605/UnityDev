@@ -58,6 +58,12 @@ public abstract class MonsterManager : MonoBehaviour
             SetStateType(StateType.Left);
         else if (transform.position.x < -8f)
             SetStateType(StateType.Right);
+
+        // 플레이어 방향으로 전진
+        GameObject target = GameObject.Find("Player");
+        Vector3 dir = target.transform.position - transform.position;
+        dir.Normalize();
+
     }
 
     void SetStateType(StateType state)
